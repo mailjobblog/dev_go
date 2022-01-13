@@ -1,8 +1,22 @@
 # Go原生方法实现RPC
 
-在 demo1 中，我们实现了一个简单的rpc服务，但是这样的服务存在一些新手经常遇到的问题，所以我们通过以下方式继续优化此rpc服务。
+## 如何测试
+
+进入到 server 目录后，启动 server 服务
+
+```bash
+go run server.go
+```
+
+进入到 client 目录后，执行 client 程序，则会通过TCP协议请求 server
+
+```bash
+go run client.go
+```
 
 ## 优化原生rpc
+
+在 demo1 中，我们实现了一个简单的rpc服务，但是这样的服务存在一些新手经常遇到的问题，所以我们通过以下方式继续优化此rpc服务。
 
 ### 持续监听TCP
 
