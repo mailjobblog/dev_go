@@ -12,7 +12,8 @@ Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `proto
 
 > protobuf3 官方文档：https://link.jianshu.com/?t=https://developers.google.com/protocol-buffers/docs/proto3  
 > Protocol Buffer 编码：https://developers.google.com/protocol-buffers/docs/encoding?hl=zh-cn#packed  
-> proto service grpc 生成插件：https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md
+> proto service grpc 生成插件：https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md  
+> 本文代码下载：https://github.com/mailjobblog/dev_go/tree/master/220115_protobuf  
 
 ## 安装
 
@@ -25,21 +26,23 @@ brew intall protoc
 
 **安装 protoc-gen-go**
 我们需要在 Golang 中使用 protobuf，还需要安装 protoc-gen-go，这个工具用来将 .proto 文件转换为 Golang 代码。
-
 ```bash
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 ```
+Tips：  
+这儿有个小小的坑，`github.com/golang/protobuf/protoc-gen-go` 和 `google.golang.org/protobuf/cmd/protoc-gen-go`是不同的。  
+区别在于前者是旧版本，后者是google接管后的新版本，他们之间的API是不同的，也就是说用于生成的命令，以及生成的文件都是不一样的。  
 
 **检查是否安装成功**
 
 ```bash
 $ protoc --version
-```
 libprotoc 3.19.3
-```bash
+
 $ protoc-gen-go --version
-```
 protoc-gen-go v1.27.1
+```
+
 
 ## protobuf生成代码
 
@@ -327,3 +330,27 @@ option go_package="./proto/pb;pb";
 - bytes：空序列
 - bools：false
 - 数值类型：0
+
+
+## 常见问题
+
+### go_package报错
+
+```text
+Please specify either:
+• a "go_package" option in the .proto source file, or
+• a "M" argument on the command line.
+```
+在go的1.14版本以后，proto文件中不添加go_package 会报错。  
+解决方法： option go_package = "./"  
+或者填写自己的包路径也行如option go_package = "http://github.com/package/name"  
+
+### 安装protoc-gen-go报错
+```text
+can't load package: package google.golang.org/protobuf/cmd/protoc-gen-go: cannot find package "google.golang.org/protobuf/cmd/protoc-gen-go" in any of:
+        C:\Go\src\google.golang.org\protobuf\cmd\protoc-gen-go (from $GOROOT)
+        C:\Users\peikai\go\src\google.golang.org\protobuf\cmd\protoc-gen-go (from $GOPATH)
+```
+解决方法：  
+先 `go get google.golang.org/protobuf/cmd/protoc-gen-go` 然后再 `install` 安装。
+
