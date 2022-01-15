@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package main;
+option go_package="./proto/pb;pb";
+
+import "google/protobuf/any.proto";
+
+message StudentAny {
+  string message = 1;
+  repeated google.protobuf.Any details = 2;
+}

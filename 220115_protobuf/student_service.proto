@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package main;
+option go_package="./proto/pb;pb";
+
+message SearchRequest{
+  string name = 1;
+}
+
+message SearchResponse{
+  repeated int64 id = 1;
+}
+
+// 通过姓名查询学生的id集合
+service SearchService {
+  rpc Search (SearchRequest) returns (SearchResponse);
+}

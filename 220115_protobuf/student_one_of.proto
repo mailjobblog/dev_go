@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package main;
+option go_package="./proto/pb;pb";
+
+message StudentOneOf {
+  oneof test_oneof {
+    string name = 4;
+    SubMessage sub_message = 9;
+  }
+}
+
+message SubMessage {
+  string st1 = 1;
+  int64 st2 = 2;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package main;
+option go_package="./proto/pb;pb";
+
+// 嵌套写法
+message Student2Response {
+  message Result2 {
+    string url = 1;
+    string title = 2;
+    repeated string snippets = 3;
+  }
+  repeated Result2 results2 = 1;
+}

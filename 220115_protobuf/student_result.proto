@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package main;
+option go_package="./proto/pb;pb";
+
+// 将 Result 作为字段
+message StudentResponse {
+  repeated Result results = 1;
+}
+
+message Result {
+  string url = 1;
+  string title = 2;
+  repeated string snippets = 3;
+}
