@@ -1,4 +1,4 @@
-package main
+package __rpc_protobuf
 
 import (
 	"fmt"
