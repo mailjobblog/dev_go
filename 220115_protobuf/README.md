@@ -18,11 +18,14 @@ Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `proto
 ## 安装
 
 **安装 protoc**   
-从 [Protobuf Releases](https://github.com/protocolbuffers/protobuf/releases) 下载最先版本的发布包安装。
-
+从 [Protobuf Releases](https://github.com/protocolbuffers/protobuf/releases) 下载最先版本的发布包安装。  
+  
+Mac安装
 ```bash
 brew intall protoc
 ```
+Windows安装：  
+windows 系统从相应的 Releases 下载到 protoc 软件后，要将该软件的 bin 目录添加到环境变量PATH下。
 
 **安装 protoc-gen-go**
 我们需要在 Golang 中使用 protobuf，还需要安装 protoc-gen-go，这个工具用来将 .proto 文件转换为 Golang 代码。
