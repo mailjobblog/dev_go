@@ -11,8 +11,8 @@
 
 # Test binary, built with `go test -c`
 *.test
-go.mod
-go.sum
+./go.mod
+./go.sum
 
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
