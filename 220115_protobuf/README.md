@@ -33,6 +33,13 @@ Tips：
 这儿有个小小的坑，`github.com/golang/protobuf/protoc-gen-go` 和 `google.golang.org/protobuf/cmd/protoc-gen-go`是不同的。  
 区别在于前者是旧版本，后者是google接管后的新版本，他们之间的API是不同的，也就是说用于生成的命令，以及生成的文件都是不一样的。  
 
+**安装**
+```bash
+go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+```
+生成GRPC代码的插件，用于生成 grpc service 代码
+
 **检查是否安装成功**
 
 ```bash
@@ -41,10 +48,12 @@ libprotoc 3.19.3
 
 $ protoc-gen-go --version
 protoc-gen-go v1.27.1
+
+$ protoc-gen-go-grpc --version
+protoc-gen-go-grpc 1.2.0
 ```
 
-
-## protobuf生成代码
+## protobuf使用介绍
 
 ### 快速上手
 
@@ -244,14 +253,21 @@ service SearchService {
 ```
 官方仓库也提供了一个 [插件列表](https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md)，帮助开发基于 Protocol Buffer 的 RPC 服务。  
 
-**生成go代码和grpc代码：**
+### 生成go代码和grpc代码
 ```bash
-# 由proto生成go代码
+# 由proto生成Go代码
 protoc --go_out=. *.proto
 
-# 由proto生成go的grpc代码
+# 由proto生成Go的GRPCc代码
 protoc --go-grpc_out=. *.proto
 ```
+同时生成Go代码和GRPC代码
+```bash
+protoc -I. --go_out=. --go-grpc_out=. *.proto
+```
+命令的定义是：`protoc -I=$SRC_DIR --go_out=$DST_DIR $SRC_DIR/*.proto`  
+SRC_DIR：应用程序源代码所在的目录——如果不提供值，则使用当前目录。  
+DST_DIR：生成的代码要去的目录;通常与$SRC_DIR相同)，以及.proto的路径。  
 
 ### protoc 命令参数
 ```bash
@@ -354,3 +370,19 @@ can't load package: package google.golang.org/protobuf/cmd/protoc-gen-go: cannot
 解决方法：  
 先 `go get google.golang.org/protobuf/cmd/protoc-gen-go` 然后再 `install` 安装。
 
+### 生成GRPC代码报错
+```text
+$> protoc --go-grpc_out=. *.proto
+
+'protoc-gen-go-grpc' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+--go-grpc_out: protoc-gen-go-grpc: Plugin failed with status code 1.
+```
+**问题分析：**  
+https://juejin.cn/post/7053729094017482783/
+  
+**解决方法：**  
+```text
+go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc
+```

@@ -6,7 +6,7 @@
 
 生成go代码
 ```bash
- protoc --go_out=./ pb/*.proto
+protoc --go_out=./ pb/*.proto
 ```
 
 生成go代码

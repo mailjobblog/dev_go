@@ -16,4 +16,8 @@ message HelloResponse {
 service HelloService {
   // 计算字符串长度
   rpc Length(HelloRequest) returns (HelloResponse);
+
+  // 计算字符串长度(grpc流)
+  // stream 用于声明流处理
+  rpc StreamLength (stream HelloRequest) returns (stream HelloResponse);
 }
