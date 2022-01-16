@@ -69,3 +69,31 @@ rpc.Dial("tcp","127.0.0.1:8888")
 改为
 rpc.DialHTTP("tcp","127.0.0.1:8888")
 ```
+
+### 客户端同步调用和异步调用
+
+```go
+func main() {
+    client, err := rpc.Dial("tcp", "127.0.0.1:8888")
+    if err != nil {
+    log.Fatal("dialing:", err)
+    }
+    res := "test HelloService"
+    var reply int
+    
+    // 同步调用
+    err = client.Call("HelloService.Length", res, &reply)
+    if err != nil {
+    log.Fatal("同步调用失败，err：", err)
+    }
+    fmt.Println(reply)
+    
+    
+    // 异步调用
+    syncCall := client.Go("Arith.Opera", res, &reply, nil)
+    // 阻塞，异步调用成功后解除阻塞
+    replayDone := <-syncCall.Done
+    fmt.Println(replayDone)
+    fmt.Println(reply)
+}
+```
