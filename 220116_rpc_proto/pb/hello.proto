@@ -1,0 +1,13 @@
+syntax = "proto3";
+package pb;
+option go_package="./pb;pb";
+
+// 请求结构体
+message HelloRequest {
+  string res = 1;
+}
+
+// 返回结构体
+message HelloResponse {
+  int64 reply = 1;
+}

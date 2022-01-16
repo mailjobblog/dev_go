@@ -1,13 +1,13 @@
 package main
 
 import (
+	"demo2/service"
 	"fmt"
 	"log"
-	"rpc/service"
+	"testing"
 )
 
-func main() {
-	// 连接服务
+func TestClient(t *testing.T) {
 	client, err := service.DialHelloService("tcp", "127.0.0.1:8888")
 
 	if err != nil {
@@ -15,7 +15,7 @@ func main() {
 	}
 	res := "hello world"
 	var reply int
-	err = client.Length(res, &reply) // 方法调用
+	err = client.Length(res, &reply)
 	if err != nil {
 		log.Fatal(err)
 	}

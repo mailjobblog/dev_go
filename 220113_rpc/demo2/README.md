@@ -2,14 +2,14 @@
 
 ## 如何测试
 
-进入到 server 目录后，启动 server 服务
+启动 server 服务
 ```bash
 go run server.go
 ```
 
-进入到 client 目录后，执行 client 程序，则会通过TCP协议请求 server
+测试 client 服务
 ```bash
-go run client.go
+go test -v --run=TestClient
 ```
 
 ## 为什么需要优化demo1
