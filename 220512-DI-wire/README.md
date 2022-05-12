@@ -1,6 +1,6 @@
 # Go依赖注入工具wire
 
-Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/inject，我们以为 wire 和 dig 作比较，对比一下两个工具的区别。
+Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/inject，我们以 wire 和 dig 作比较，对比一下两个工具的区别。
 
 - dig 通过反射识别依赖关系，wire 是编译前计算依赖关系，Wire 作为代码生成器运行，这意味着注入器无需调用运行时库即可工作。
 - dig 只能在代码运行时，才能知道哪个依赖不对，比如构造函数返回类型的是结构体指针，但是其他依赖的是interface，这样的错误只能在运行时发现，而wire可以在编译的时候就发现。
@@ -8,8 +8,7 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 
 ## 官方文档
 
-- 包地址：https://github.com/google/wire
-- 使用文档：https://github.com/google/wire/tree/main/docs
+- wire：https://github.com/google/wire
 
 ## Wire使用详解
 
