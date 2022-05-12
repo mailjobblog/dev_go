@@ -12,7 +12,7 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 
 ## Wire使用详解
 
-本文基于 `wire v0.5.0` 编写，关于演示代码可在 [DI-wire](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire) 下载。
+本文基于 `wire v0.5.0` 编写，关于测试代码可在 [DI-wire](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire) 下载。
 
 
 
