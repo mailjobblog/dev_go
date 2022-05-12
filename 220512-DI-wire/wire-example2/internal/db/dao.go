@@ -11,7 +11,9 @@ type Dao struct { // 默认实现
 }
 
 func NewDao(db *sql.DB) *Dao { // 生成dao对象的方法
-	return &Dao{db: db}
+	return &Dao{
+		db: db,
+	}
 }
 
 func (d *Dao) Version() (string, error) {
