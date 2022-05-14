@@ -1,5 +1,7 @@
 # Go依赖注入工具wire
 
+## 介绍
+
 Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/inject，我们以 wire 和 dig 作比较，对比一下两个工具的区别。
 
 - dig 通过反射识别依赖关系，wire 是编译前计算依赖关系，Wire 作为代码生成器运行，这意味着注入器无需调用运行时库即可工作。
@@ -8,18 +10,32 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 
 ## 官方文档
 
-- wire：https://github.com/google/wire
+- wire github：https://github.com/google/wire
 
-## Wire使用详解
+## Wire详解
 
 本文基于 `wire v0.5.0` 编写，关于测试代码可在 [DI-wire](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire) 下载。
 
+### 搭建测试服务
+
+在测试 wire 过程中，可能需要用到一些 DB 服务，请根据 example 的需求，安装需要的服务。
+
+```bash
+docker run -itd -p 3310:3306 -e MYSQL_ROOT_PASSWORD=root --name wire-mysql mysql:5.7
+```
 
 
 
 ## 参考资料
 
+**wire**
+
 - https://segmentfault.com/a/1190000039185137
 - https://darjun.github.io/2020/03/02/godailylib/wire
 - https://www.cnblogs.com/Me1onRind/p/13624487.html
 - https://juejin.cn/post/6844903901469097998
+- https://www.modb.pro/db/231728
+
+**wire工程化**
+
+- https://github.com/go-kratos/beer-shop

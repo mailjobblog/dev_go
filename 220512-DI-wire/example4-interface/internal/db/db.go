@@ -9,7 +9,8 @@ import (
 
 // var Provider = wire.NewSet(NewDb) // 将New方法声明为Provider，表示New方法可以创建一个被别人依赖的对象
 
-var Provider = wire.NewSet(NewDb, NewDao, wire.Bind(new(IDao), new(*Dao)))
+//
+var Provider = wire.NewSet(NewDb, NewDao, wire.Bind(new(IDao), new(*Dao))) // 这里将接口和实现进行绑定
 
 func NewDb(cfg *config.Config) (db *sql.DB, err error) {
 	db, err = sql.Open("mysql", cfg.Database.Dsn)
