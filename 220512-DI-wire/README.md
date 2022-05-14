@@ -31,10 +31,11 @@ docker run -itd -p 3310:3306 -e MYSQL_ROOT_PASSWORD=root --name wire-mysql mysql
 **wire**
 
 - https://segmentfault.com/a/1190000039185137
+- **https://juejin.cn/post/6844903901469097998**
+- **https://www.modb.pro/db/231728**
 - https://darjun.github.io/2020/03/02/godailylib/wire
 - https://www.cnblogs.com/Me1onRind/p/13624487.html
-- https://juejin.cn/post/6844903901469097998
-- https://www.modb.pro/db/231728
+
 
 **wire工程化**
 
