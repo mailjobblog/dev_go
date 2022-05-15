@@ -433,7 +433,7 @@ func InitApp() (*App, error) {
 
 ### 运行测试
 
-
+由于现在是两个文件，我们不能用`go run main.go`运行程序，可以用`go run .`运行。
 
 ## 参考资料
 
