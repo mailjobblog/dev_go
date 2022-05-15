@@ -14,12 +14,12 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 
 ## 代码与文档
 
-- 入门：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example1
-- 结构体绑定：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example2-struct
-- 值绑定：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example3-value
-- 接口绑定：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example4-interface
-- cleanup销毁：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example5-clean_up
-- 工程化：https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/wire-project1
+- 入门：[example1](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example1)
+- 结构体绑定：[example2-struct](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example2-struct)
+- 值绑定：[example3-value](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example3-value)
+- 接口绑定：[example4-interface](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example4-interface)
+- cleanup销毁：[example5-clean_up](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example5-clean_up)
+- 工程化：[wire-project1](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/wire-project1)
 
 ## Wire详解
 
@@ -434,6 +434,6 @@ func InitApp() (*App, error) {
 - https://darjun.github.io/2020/03/02/godailylib/wire
 - https://www.cnblogs.com/Me1onRind/p/13624487.html
 
-**wire工程化**
+**基于wire的小项目**
 
 - https://github.com/go-kratos/beer-shop
