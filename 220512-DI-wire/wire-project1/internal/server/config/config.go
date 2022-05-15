@@ -1,6 +1,7 @@
 package config
 
 import (
+	"context"
 	"encoding/json"
 	"github.com/google/wire"
 	"os"
@@ -16,7 +17,7 @@ type database struct {
 	Dsn string `json:"dsn"`
 }
 
-func New() (*Config, func(), error) {
+func New(ctx context.Context) (*Config, func(), error) {
 	fp, err := os.Open("../../config/app.json")
 	if err != nil {
 		return nil, func() {}, err

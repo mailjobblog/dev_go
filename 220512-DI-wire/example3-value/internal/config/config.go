@@ -21,6 +21,7 @@ type String2 string
 
 func New(s string, s2 String2) (*Config, error) {
 
+	// 输出绑定的两个 string
 	fmt.Println("print wire value：" + s)
 	fmt.Println("print wire value：" + s2)
 

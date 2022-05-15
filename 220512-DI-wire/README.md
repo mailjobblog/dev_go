@@ -416,7 +416,13 @@ func InitApp() (*App, error) {
 }
 ```
 
+### 常用方法
 
+**wire.NewSet**
+
+相关的 provider 组织在一起。使用函数 `wire.NewSet` 就可以做到。
+
+一般应用在初始化对象比较多的情况下，减少`Injector`里的信息。
 
 ## 参考资料
 

@@ -16,7 +16,7 @@ import (
 // Injectors from wire.go:
 
 func InitApp(ctx context.Context) (*App, func(), error) {
-	configConfig, cleanup, err := config.New()
+	configConfig, cleanup, err := config.New(ctx)
 	if err != nil {
 		return nil, nil, err
 	}

@@ -22,7 +22,7 @@ func New() (*Config, func(), error) {
 	if err != nil {
 		return nil, func() {}, err
 	}
-	// defer fp.Close() // 这里注释了，交由外部处理
+	// defer fp.Close() // 这里注释了，交由 cleanup 处理
 	var cfg Config
 	if err := json.NewDecoder(fp).Decode(&cfg); err != nil {
 		return nil, func() {
