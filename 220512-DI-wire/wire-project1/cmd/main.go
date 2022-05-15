@@ -38,11 +38,11 @@ func main() {
 		return
 	}
 	fmt.Printf("查询成功， %+v", order)
+	fmt.Println()
 
 	// 测试 db 插入
 	var o = biz.Order{
 		Name:  "测试商品",
-		Type:  "1",
 		Price: 9.9,
 	}
 	ID, err := app.OrderRepo.Create(ctx, &o)

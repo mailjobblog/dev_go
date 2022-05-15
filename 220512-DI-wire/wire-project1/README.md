@@ -76,7 +76,6 @@ import "context"
 type Order struct {
 	Id    int64
 	Name  string
-	Type  string
 	Price float64
 }
 
@@ -137,7 +136,7 @@ func NewOrderRepo(data *Data) (biz.OrderRepo, func(), error) {
 
 func (o *OrderRepo) Find(ctx context.Context, id int64) (*biz.Order, error) {
 	var order biz.Order
-	err := o.Dao.QueryRow("SELECT * FROM order WHERE id=?", id).Scan(&order)
+	err := o.Dao.QueryRow("SELECT * FROM `order` WHERE id=?", id).Scan(&order.Id, &order.Name, &order.Price)
 	if err != nil {
 		return nil, err
 	}
@@ -145,8 +144,8 @@ func (o *OrderRepo) Find(ctx context.Context, id int64) (*biz.Order, error) {
 }
 
 func (o *OrderRepo) Create(ctx context.Context, order *biz.Order) (int64, error) {
-	sqlStr := "insert into order(name, type, price) values (?,?,?)"
-	ret, err := o.Dao.Exec(sqlStr, order.Name, order.Type, order.Price)
+	sqlStr := " INSERT INTO `order`(`name`, `price`) values (?,?)"
+	ret, err := o.Dao.Exec(sqlStr, order.Name, order.Price)
 	if err != nil {
 		fmt.Printf("insert failed, err:%v\n", err)
 		return 0, err
@@ -156,7 +155,6 @@ func (o *OrderRepo) Create(ctx context.Context, order *biz.Order) (int64, error)
 		fmt.Printf("get lastinsert ID failed, err:%v\n", err)
 		return 0, err
 	}
-	//log.Printf("insert success, the id is %d.\n", theID)
 	return theID, nil
 }
 ```
@@ -197,11 +195,11 @@ func main() {
 		return
 	}
 	fmt.Printf("查询成功， %+v", order)
+	fmt.Println()
 
 	// 测试 db 插入
 	var o = biz.Order{
 		Name:  "测试商品",
-		Type:  "1",
 		Price: 9.9,
 	}
 	ID, err := app.OrderRepo.Create(ctx, &o)

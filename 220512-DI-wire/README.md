@@ -27,11 +27,23 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 
 **创建测试驱动服务**
 
-在测试 wire 过程中，可能需要用到一些 DB 服务，请根据 example 的需求，安装需要的服务。
+在测试 wire 过程中，可能需要用到一些 DB 服务，请根据 example 的需求，安装需要的服务。  
 
+创建mysql容器
 ```bash
-# 创建mysql容器
-docker run -itd -p 3310:3306 -e MYSQL_ROOT_PASSWORD=root --name wire-mysql mysql:5.7
+docker run -itd -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root --name test_mysql mysql:5.7
+```
+创建数据库
+```bash
+docker exec -i test_mysql mysql -uroot -proot -e "CREATE DATABASE `test_db` default character set utf8mb4 collate utf8mb4_unicode_ci;"
+```
+创建表
+```bash
+docker exec -i test_mysql mysql -uroot -proot -e "CREATE TABLE `test_db`.`order`( `id` int(11) NOT NULL AUTO_INCREMENT, `name` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL, `price` decimal(10, 2) DEFAULT NULL, PRIMARY KEY(`id`)) ENGINE=InnoDB;"
+```
+添加测试数据
+```bash
+docker exec -i test_mysql mysql -uroot -proot -e "INSERT INTO `test_db`.`order`(`id`, `name`, `price`) VALUES(1, 'Pen', 12.60); INSERT INTO `test_db`.`order`(`id`, `name`, `price`) VALUES (2, 'potato', 4.00);"
 ```
 
 ### 安装

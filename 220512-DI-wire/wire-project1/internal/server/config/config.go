@@ -18,7 +18,7 @@ type database struct {
 }
 
 func New(ctx context.Context) (*Config, func(), error) {
-	fp, err := os.Open("../../config/app.json")
+	fp, err := os.Open("../config/app.json")
 	if err != nil {
 		return nil, func() {}, err
 	}

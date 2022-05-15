@@ -5,7 +5,6 @@ import "context"
 type Order struct {
 	Id    int64
 	Name  string
-	Type  string
 	Price float64
 }
 
