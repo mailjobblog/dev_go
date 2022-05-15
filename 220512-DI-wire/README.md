@@ -21,13 +21,9 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 - cleanup销毁：[example5-clean_up](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/example5-clean_up)
 - 工程化：[wire-project1](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire/wire-project1)
 
-## Wire详解
+## 创建测试驱动服务
 
-本文基于 `wire v0.5.0` 编写，关于测试代码可在 [DI-wire](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire) 下载。
-
-**创建测试驱动服务**
-
-在测试 wire 过程中，可能需要用到一些 DB 服务，请根据 example 的需求，安装需要的服务。  
+在测试 wire 过程中，可能需要用到一些 DB 服务，请根据 example 的需求，安装需要的服务。
 
 创建mysql容器
 ```bash
@@ -45,6 +41,10 @@ docker exec -i test_mysql mysql -uroot -proot -e "CREATE TABLE `test_db`.`order`
 ```bash
 docker exec -i test_mysql mysql -uroot -proot -e "INSERT INTO `test_db`.`order`(`id`, `name`, `price`) VALUES(1, 'Pen', 12.60); INSERT INTO `test_db`.`order`(`id`, `name`, `price`) VALUES (2, 'potato', 4.00);"
 ```
+
+## Wire详解
+
+本文基于 `wire v0.5.0` 编写，关于测试代码可在 [DI-wire](https://github.com/mailjobblog/dev_go/tree/master/220512-DI-wire) 下载。
 
 ### 安装
 
