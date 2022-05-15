@@ -90,7 +90,7 @@ func (db *DB) Find() string {
 
 - 首先用 NewConfig 获取 Config 资源
 - 然后 NewDB 获取 DB 资源，这里需要注入 Config 的资源
-- 所以这里的 NewDB 依赖 NewConfig 
+- 所以这里的 NewDB 依赖 NewConfig
 
 **使用依赖注入后的代码**
 
@@ -183,7 +183,6 @@ func main() {
 - **https://www.modb.pro/db/231728**
 - https://darjun.github.io/2020/03/02/godailylib/wire
 - https://www.cnblogs.com/Me1onRind/p/13624487.html
-
 
 **wire工程化**
 
