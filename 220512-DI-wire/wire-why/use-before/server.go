@@ -15,6 +15,7 @@ type DB struct {
 }
 
 func NewDB(cfg *Config) *DB {
+	// TODO 建立mysql连接资源
 	return &DB{table: "test_table"}
 }
 

@@ -15,7 +15,7 @@ type Dao struct { // 默认实现
 }
 
 // 生成dao对象的方法
-func NewDao(db *sql.DB) *Dao {
+func NewDao(db *sql.DB) IDao {
 	return &Dao{
 		db: db,
 	}

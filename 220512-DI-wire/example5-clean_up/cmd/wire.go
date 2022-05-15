@@ -10,6 +10,5 @@ import (
 
 func InitApp() (*App, func(), error) {
 	wire.Build(config.Provider, NewApp)
-	return &App{}, func() {
-	}, nil
+	return &App{}, func() {}, nil
 }
