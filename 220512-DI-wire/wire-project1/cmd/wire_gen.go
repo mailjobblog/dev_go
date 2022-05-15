@@ -20,7 +20,7 @@ func InitApp(ctx context.Context) (*App, func(), error) {
 	if err != nil {
 		return nil, nil, err
 	}
-	sqlDB, cleanup2, err := db.NewDb(configConfig)
+	sqlDB, cleanup2, err := db.NewDb(ctx, configConfig)
 	if err != nil {
 		cleanup()
 		return nil, nil, err

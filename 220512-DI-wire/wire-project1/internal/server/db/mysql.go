@@ -1,6 +1,7 @@
 package db
 
 import (
+	"context"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/google/wire"
@@ -9,7 +10,7 @@ import (
 
 var Provider = wire.NewSet(NewDb)
 
-func NewDb(cfg *config.Config) (db *sql.DB, cleanup func(), err error) {
+func NewDb(ctx context.Context, cfg *config.Config) (db *sql.DB, cleanup func(), err error) {
 	db, err = sql.Open("mysql", cfg.Database.Dsn)
 	if err != nil {
 		return
