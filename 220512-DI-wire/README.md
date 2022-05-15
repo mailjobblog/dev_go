@@ -32,11 +32,6 @@ Go 语言常用的依赖注入工具有 google/wire、uber-go/dig、facebookgo/i
 ```bash
 # 创建mysql容器
 docker run -itd -p 3310:3306 -e MYSQL_ROOT_PASSWORD=root --name wire-mysql mysql:5.7
-
-# 创建数据库和表
-
-# 添加测试数据
-
 ```
 
 ### 安装

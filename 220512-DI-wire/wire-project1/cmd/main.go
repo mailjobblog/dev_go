@@ -41,7 +41,7 @@ func main() {
 
 	// 测试 db 插入
 	var o = biz.Order{
-		Name:  "测试上品",
+		Name:  "测试商品",
 		Type:  "1",
 		Price: 9.9,
 	}
