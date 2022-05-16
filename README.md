@@ -11,3 +11,4 @@
 - Etcd连接测试：[220107_etcd_con](220107_etcd_con)
 - RPC实现：[220113_rpc](220113_rpc)
 - protobuf入门使用：[220115_protobuf](220115_protobuf)
+- Wire依赖注入：[220512-DI-wire](220512-DI-wire)
