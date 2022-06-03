@@ -25,7 +25,7 @@ Mac安装
 # 安装
 brew install protobuf
 
-# 查看版本
+# 查看版本信息
 protoc --version
 ```
 
@@ -33,32 +33,21 @@ windows 系统从相应的 Releases 下载到 protoc 软件后，要将该软件
 
 **安装 protoc-gen-go**
   
-我们需要在 Golang 中使用 protobuf，还需要安装 [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go)，这个工具用来将 .proto 文件转换为 Golang 代码。
+生成GRPC代码的插件，用于生成 grpc service 代码。所以我们需要在 Golang 中使用 protobuf，还需要安装 [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go)，这个工具用来将 .proto 文件转换为 Golang 代码。
 
 ```bash
+# 安装
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+
+# 查看版本信息
+protoc-gen-go --version
+protoc-gen-go-grpc --version
 ```
 
 Tips：
 
 这儿有个小小的坑，`github.com/golang/protobuf/protoc-gen-go` 和 `google.golang.org/protobuf/cmd/protoc-gen-go`是不同的。  
 区别在于前者是旧版本，后者是google接管后的新版本，他们之间的API是不同的，也就是说用于生成的命令，以及生成的文件都是不一样的。  
-
-
-生成GRPC代码的插件，用于生成 grpc service 代码
-
-**检查是否安装成功**
-
-```bash
-$ protoc --version
-libprotoc 3.19.3
-
-$ protoc-gen-go --version
-protoc-gen-go v1.27.1
-
-$ protoc-gen-go-grpc --version
-protoc-gen-go-grpc 1.2.0
-```
 
 ## protobuf使用介绍
 
