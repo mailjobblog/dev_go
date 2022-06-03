@@ -15,6 +15,13 @@ Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `proto
 > proto service grpc 生成插件：https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md  
 > 本文代码下载：https://github.com/mailjobblog/dev_go/tree/master/220115_protobuf  
 
+## 基础环境
+
+- Go 1.18
+- protoc 3.19.4
+- protoc-gen-go v1.28.0
+- protoc-gen-go-grpc 1.2.0
+
 ## 安装
 
 **安装 protoc**   
