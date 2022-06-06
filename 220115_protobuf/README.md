@@ -10,24 +10,21 @@ Protobuf 在 `.proto` 定义需要处理的结构化数据，可以通过 `proto
 
 ## 参考文献
 
-> protobuf3 官方文档：https://link.jianshu.com/?t=https://developers.google.com/protocol-buffers/docs/proto3  
-> Protocol Buffer 编码：https://developers.google.com/protocol-buffers/docs/encoding?hl=zh-cn#packed  
-> proto service grpc 生成插件：https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md  
-> 本文代码下载：https://github.com/mailjobblog/dev_go/tree/master/220115_protobuf  
+- protobuf3 官方文档：https://link.jianshu.com/?t=https://developers.google.com/protocol-buffers/docs/proto3
+- Protocol Buffer 编码：https://developers.google.com/protocol-buffers/docs/encoding?hl=zh-cn#packed
+- proto service grpc 生成插件：https://github.com/protocolbuffers/protobuf/blob/master/docs/third_party.md
+- 本文代码下载：https://github.com/mailjobblog/dev_go/tree/master/220115_protobuf  
 
 ## 基础环境
 
-- Go 1.18
-- protoc 3.19.4
-- protoc-gen-go v1.28.0
-- protoc-gen-go-grpc 1.2.0
+- Go：1.18
+- protoc：3.19.4
+- protoc-gen-go：v1.28.0
+- protoc-gen-go-grpc：1.2.0
 
 ## 安装
-
-**安装 protoc**   
-从 [Protobuf Releases](https://github.com/protocolbuffers/protobuf/releases) 下载最先版本的发布包安装。  
-  
-Mac安装
+### 安装 protoc
+**Mac**
 ```bash
 # 安装
 brew install protobuf
@@ -36,25 +33,28 @@ brew install protobuf
 protoc --version
 ```
 
+**Windows**
+
+从 [Protobuf Releases](https://github.com/protocolbuffers/protobuf/releases) 下载最先版本的发布包安装。  
 windows 系统从相应的 Releases 下载到 protoc 软件后，要将该软件的 bin 目录添加到环境变量PATH下。
 
-**安装 protoc-gen-go**
+### 安装 protoc-gen-go
   
 生成GRPC代码的插件，用于生成 grpc service 代码。所以我们需要在 Golang 中使用 protobuf，还需要安装 [protoc-gen-go](https://pkg.go.dev/google.golang.org/protobuf/cmd/protoc-gen-go)，这个工具用来将 .proto 文件转换为 Golang 代码。
 
 ```bash
 # 安装
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 # 查看版本信息
 protoc-gen-go --version
 protoc-gen-go-grpc --version
 ```
 
-Tips：
-
-这儿有个小小的坑，`github.com/golang/protobuf/protoc-gen-go` 和 `google.golang.org/protobuf/cmd/protoc-gen-go`是不同的。  
-区别在于前者是旧版本，后者是google接管后的新版本，他们之间的API是不同的，也就是说用于生成的命令，以及生成的文件都是不一样的。  
+> **Tips**  
+> 这儿有个小小的坑，`github.com/golang/protobuf/protoc-gen-go` 和 `google.golang.org/protobuf/cmd/protoc-gen-go` 是不同的。  
+> 区别在于前者是旧版本，后者是google接管后的新版本，他们之间的API是不同的，也就是说用于生成的命令，以及生成的文件都是不一样的。    
 
 ## protobuf使用介绍
 
