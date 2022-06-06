@@ -1,5 +1,5 @@
 .PHONY:proto
-proto: ## 生成proto文件
+proto: ## 生成proto的go代码
 	protoc --go_out=. proto/user.proto
 
 .PHONY:help
