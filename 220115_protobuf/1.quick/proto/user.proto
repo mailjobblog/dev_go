@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package api;
+
+option go_package="proto/api";
+
+message User {
+  string name = 1;
+  bool status = 2;
+  repeated string hobby = 3;
+}
