@@ -1,0 +1,18 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserOneOf {
+  oneof message {
+      MessageA a = 2;
+      MessageB b = 3;
+  }
+}
+
+message MessageA {
+  int64 title = 1;
+}
+
+message MessageB {
+  string title = 1;
+}

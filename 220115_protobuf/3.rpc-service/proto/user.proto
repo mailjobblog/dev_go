@@ -1,0 +1,11 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserData {
+  int64 user_id = 1;
+  string name = 2;
+  int64 sex = 3;
+  double amount = 4;
+  repeated string hobby = 5;
+}

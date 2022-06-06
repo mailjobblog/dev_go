@@ -1,0 +1,15 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserEnumAlias {
+  string name = 1;
+  enum StatusEnum
+  {
+    option allow_alias = true;
+    SUCCESS = 0;
+    ERROR = 1;
+    WARNING = 1;
+  }
+  StatusEnum status = 2;
+}

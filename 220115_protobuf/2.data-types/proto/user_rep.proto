@@ -1,0 +1,13 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserResponse {
+  string name = 1;
+  UserData data = 2;
+}
+
+message UserData {
+  string title = 1;
+  string content = 2;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserMap {
+  string name = 1;
+  map<string, int32> points = 2;
+}

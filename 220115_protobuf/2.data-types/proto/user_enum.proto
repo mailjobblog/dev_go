@@ -1,0 +1,14 @@
+syntax = "proto3";
+package api;
+option go_package="proto/api";
+
+message UserEnum {
+  string name = 1;
+  enum SexEnum
+  {
+    UNKNOWN = 0; //proto3版本中，首成员必须为0，成员不应有相同的值
+    BOY = 1;
+    GIRL = 2;
+  }
+  SexEnum sex = 2;
+}

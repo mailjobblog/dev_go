@@ -1,0 +1,20 @@
+syntax = "proto3";
+package api;
+import "proto/user.proto";
+option go_package="proto/api";
+
+service Account {
+  rpc SearchUser(UserReq) returns (UserRep) {};
+}
+
+message UserReq {
+  int64 user_id = 1;
+  string name = 2;
+}
+
+message UserRep {
+  int64 code = 1;
+  string message = 2;
+  repeated UserData data = 3;
+}
+
