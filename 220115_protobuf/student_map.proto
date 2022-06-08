@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package main;
-option go_package="./proto/pb;pb";
-
-message StudentMap {
-  map<string, int32> points = 1;
-}
