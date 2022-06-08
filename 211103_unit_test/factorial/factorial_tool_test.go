@@ -5,6 +5,9 @@ import (
 	"testing"
 )
 
+// 工具安装：go get github.com/cweill/gotests/...
+// 生成命令：gotests -all -w factorial.go
+
 // gotests 工具生成的测试代码
 func Test_operation(t *testing.T) {
 	type args struct {
